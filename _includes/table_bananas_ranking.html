@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered data-table table-hover">
+    <thead>
+      <tr>
+	<th class='column-to-sort-first asc'>Rank</th>
+	<th>User</th>
+	<th data-type="fruit">Bananas</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in site.data.users %}
+	<tr>
+	  <th class="text-center" scope="row">#{{ user.bananas_ranking }}</th>
+	  <td>
+	      {{ user.username }}
+	  </td>
+	  <td class="text-right">{{ user.bananas }} 🍌</td>
+	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
