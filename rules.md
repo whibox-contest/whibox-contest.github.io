@@ -41,15 +41,15 @@ title: Competition Rules
 	      <li>No <code>#include</code> or <code>extern</code> is allowed in the source code, and more generally linking to external libraries (even the standard C libraries) is forbidden. This is intended to prevent the inclusion of malware in submitted challenges. Any attempt to maliciously attack the SYSTEM or the computer system of attackers will lead to DISQUALIFICATION. In case evidence of malicious code is found in a challenge, contestants are invited to contact the ORGANIZING COMMITTEE directly (whibox.organizing.committee@gmail.com). If contestants are suspicious that some challenge program may contain malware, they may run GCC in docker or a virtual machine, exactly like the server does (using VirtualBox). Documentation on how the server runs is found on <a href="https://github.com/CryptoExperts/wb_contest_submission_server">GitHub</a>. Contestants are invited to download and install their own instance of the server if they want to ensure that their challenge will be accepted when submitted.</li>
 	      <li>The type <code>unsigned long</code> is imposed to represent 32-bit integers, meaning that the target architecture is 32 bit oriented (as opposed to 64).</li>
 	      <li>The source code must be completely portable and re-compilable towards ANY 32-bit target architecture. In other words, it must be made only of generic C which in particular, excludes the use of inline assembly.</li>
-	      <li>The source code must be no bigger than <strong>{{ challenge_max_source_size_in_mb }}MB</strong>.</li>
-	      <li>The REFERENCE COMPILER must use at most <strong>{{ challenge_max_mem_for_compilation_in_mb }}MB</strong> of RAM to complete compilation.</li>
-	      <li>The compilation must not exceed <strong>{{ challenge_max_time_for_compilation_in_secs }} seconds</strong>.</li>
+	      <li>The source code must be no bigger than <strong>50MB</strong>.</li>
+	      <li>The REFERENCE COMPILER must use at most <strong>500MB</strong> of RAM to complete compilation.</li>
+	      <li>The compilation must not exceed <strong>100 seconds</strong>.</li>
 	    </ul>
 	    <li><strong>Requirements on the executable:</strong> once compiled by the REFERENCE COMPILER, the executable program must:</li>
 	    <ul>
-	      <li>be <strong>{{ challenge_max_binary_size_in_mb }}MB</strong> in size or less,</li>
-	      <li>use <strong>{{ challenge_max_mem_execution_in_mb }}MB</strong> of RAM or less (this includes the stack and all global variables, at the exclusion of the code itself),</li>
-	      <li>run, on average, in <strong>{{ challenge_max_time_execution_in_secs }} second</strong> or less per function call. This is not absolute time but CPU time, measured within a VirtualBox VM by the SYSTEM. Contestants may check that their challenges comply with this limitation by using the utility <code>ulimit</code> with the <code>-t</code> option.</li>
+	      <li>be <strong>20MB</strong> in size or less,</li>
+	      <li>use <strong>20MB</strong> of RAM or less (this includes the stack and all global variables, at the exclusion of the code itself),</li>
+	      <li>run, on average, in <strong>1 second</strong> or less per function call. This is not absolute time but CPU time, measured within a VirtualBox VM by the SYSTEM. Contestants may check that their challenges comply with this limitation by using the utility <code>ulimit</code> with the <code>-t</code> option.</li>
 	    </ul>
 	  </ul>
 	  <p>The SYSTEM will reject a program that does not comply with these requirements.</p>
