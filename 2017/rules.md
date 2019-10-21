@@ -1,6 +1,7 @@
 ---
 layout: base
 title: Competition Rules
+edition: "2017"
 ---
 
   <div class="row">
