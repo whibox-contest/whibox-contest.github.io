@@ -1,0 +1,24 @@
+<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+  <table class="table table-striped table-bordered data-table table-hover" style="width: 100%;">
+    <thead>
+      <tr>
+	<th class='column-to-sort-first'>Date</th>
+	<th>User</th>
+	<th data-type="fruit">Carrots</th>
+	<th>Challenge Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wb_invert in site.data.inverts[page.edition] %}
+	<tr>
+	  <th scope="row">{{ wb_invert.datetime_invert }}</th>
+	  <td>
+	      {{ wb_invert.username }}
+	  </td>
+	  <td class="text-right">{{ wb_invert.carrots }} 🥕</td>
+	  <td class="text-center"><a href='candidate/{{ wb_invert.program_id }}.c'>{{ wb_invert.program_name }}</a> ({{ wb_invert.program_id }})</td>
+	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

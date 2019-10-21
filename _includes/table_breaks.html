@@ -9,14 +9,18 @@
       </tr>
     </thead>
     <tbody>
-      {% for wb_break in site.data.breaks %}
+      {% for wb_break in site.data.breaks[page.edition] %}
 	<tr>
 	  <th scope="row">{{ wb_break.datetime_broken }}</th>
 	  <td>
 	      {{ wb_break.username }}
 	  </td>
 	  <td class="text-right">{{ wb_break.strawberries }} 🍓</td>
+	  {% if page.edition == "2017" %}
 	  <td>{{ wb_break.program }} </td>
+	  {% else %}
+	  <td class="text-center"><a href='candidate/{{ wb_break.program_id }}.c'>{{ wb_break.program_name }}</a> ({{ wb_break.program_id }})</td>
+	  {% endif %}
 	</tr>
       {% endfor %}
     </tbody>

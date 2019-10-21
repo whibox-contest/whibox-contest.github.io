@@ -2,16 +2,16 @@
   <table class="table table-striped table-bordered data-table table-hover">
     <thead>
       <tr>
-	<th class='column-to-sort-first asc'>Rank</th>
-	<th>User</th>
-	<th data-type="fruit">Bananas</th>
+	<th class='column-to-sort-first asc text-center'>Rank</th>
+	<th class="text-center">User</th>
+	<th class="text-center" data-type="fruit">Bananas</th>
       </tr>
     </thead>
     <tbody>
-      {% for user in site.data.users %}
+      {% for user in site.data.users[page.edition] %}
 	<tr>
-	  <th class="text-center" scope="row">#{{ user.bananas_ranking }}</th>
-	  <td>
+          <th class="text-center" scope="row">{{ user.bananas_ranking }}</th>
+	  <td class="text-center">
 	      {{ user.username }}
 	  </td>
 	  <td class="text-right">{{ user.bananas }} 🍌</td>

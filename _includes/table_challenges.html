@@ -1,3 +1,4 @@
+{% if page.edition == '2017' %}
 <div class="table-responsive">
   <table class="table table-striped table-bordered data-table table-hover">
     <thead>
@@ -11,13 +12,12 @@
 	<th>Status</th>
 	<th>Publication Date</th>
 	<th>Date of First Break</th>
-	<!-- <th data-type="fruit">Current Strawberries</th> -->
 	<th></th>
       </tr>
     </thead>
     <tbody>
-      {% for program in site.data.programs %}
-	<tr>
+      {% for program in site.data.programs[page.edition] %}
+      <tr>
 	  <th class="text-center" scope="row">#{{ program.strawberries_ranking }}</th>
 	  <td class="text-center">{{ program._id }}</td>
 	  <td><div style="width: 1em; height: 1em; background-color: {{ program.hsl_color }}"></div></td>
@@ -33,10 +33,59 @@
 	  <td>{{ program.datetime_first_break or '-' }}</td>
 	  <!-- <td class="text-right">{{ program.strawberries_last }} 🍓</td> -->
 	  <td class="nowrap">
-	    <a href='/show/candidate/{{ program._id }}' class="btn btn-primary btn-sm">Download</a>
+	    <a href='candidate/{{ program._id }}' class="btn btn-primary btn-sm">Download</a>
 	  </td>
 	</tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+{% else if page.edition == '2019' %}
+<div class="table-responsive">
+  <table class="table table-striped table-bordered data-table table-hover">
+    <thead>
+      <tr>
+	<th class='column-to-sort-first asc'>Rank</th>
+	<th>id</th>
+	<th></th>
+	<th>Name (click to download)</th>
+        <th data-type="fruit" class='text-center'> 🍓 / 🥕 Peak</th>
+        <th class='text-center'>User</th>
+        <th class='text-center'>Status</th>
+        <th class='text-center'>Compiler</th>
+        <th class='text-center'>Performance</th>
+        <th class='text-center'>Publication Date</th>
+        <th class='text-center'>First Break</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for program in site.data.programs[page.edition] %}
+      <tr>
+        <th class="text-center" scope="row">{{ program.strawberries_ranking }}</th>
+        <td class="text-center">{{ program._id }}</td>
+        <td><div style="width: 1em; height: 1em; background-color: {{ program.color }}"></div></td>
+        <td class="text-center"><a href='candidate/{{ program._id }}.c'>{{ program.funny_name }}</a></td>
+        <td class="text-center">{{ program.strawberries_peak }} 🍓 / {{ program.carrots_peak }} 🥕</td>
+        <td class="ellipsable text-center">
+	  {{ program.username }}
+        </td>
+        <td class="text-center">
+          {% if program.status == 'Broken!' %}
+          <span class="text-danger">Broken!</span>
+          {% else %}
+          <span class="text-success">Standing</span>
+          {% endif %}
+        </td>
+	  <!-- <td> -->
+	  <!--     <span class="text-danger">Broken!</span> -->
+	  <!-- </td> -->
+          <td class="compiler text-center">{{ program.compiler }}</td>
+          <td class="text-center">{{ program.performance }}</td>
+	  <td class="text-center">{{ program.datetime_published }}</td>
+	  <td class="text-center">{{ program.datetime_first_break or '-' }}</td>
+	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}

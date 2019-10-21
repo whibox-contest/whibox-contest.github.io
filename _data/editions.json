@@ -1,0 +1,16 @@
+{
+    "2017": {
+	"users": 192,
+	"challenges": 94,
+	"unbroken": 0,
+	"breaks": 877
+    },
+    "2019":{
+	"users": 63,
+	"challenges": 27,
+	"unbroken": 3,
+	"uninverted": 3,
+	"breaks": 124,
+	"inversions": 23
+    }
+}

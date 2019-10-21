@@ -1,5 +1,7 @@
 <div class="row">
 
+  {% assign edition = site.data.editions[page.edition] %}
+
   <div class="col-lg-3 col-md-6">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -8,7 +10,7 @@
             <i class="fa fa-users fa-5x"></i>
           </div>
           <div class="col-xs-offset-1 col-xs-8 text-right">
-            <div class="huge">192</div>
+            <div class="huge">{{ edition.users }}</div>
             <div>Users!</div>
           </div>
         </div>
@@ -31,7 +33,7 @@
             <i class="fa fa-file-text-o fa-5x"></i>
           </div>
           <div class="col-xs-offset-1 col-xs-8 text-right">
-            <div class="huge">94</div>
+            <div class="huge">{{ edition.challenges }}</div>
 	    <div>Challenges!</div>
           </div>
         </div>
@@ -54,8 +56,8 @@
             <i class="fa fa-check-circle fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge">0</div>
-	    <div>Unbroken!</div>
+            <div class="huge">{{ edition.unbroken }}{% if edition.uninverted %} / {{ edition.uninverted }}{% endif %}</div>
+	    <div>Unbroken!{% if edition.uninverted %} / Uninverted!{% endif %}</div>
           </div>
         </div>
       </div>
@@ -77,8 +79,8 @@
             <i class="fa fa-crosshairs fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge">877</div>
-            <div>Breaks!</div>
+            <div class="huge">{{ edition.breaks }}{% if edition.inversions %} / {{ edition.inversions }}{% endif %}</div>
+            <div>Breaks!{% if edition.inversions %} / Inversions{% endif %}</div>
           </div>
         </div>
       </div>
