@@ -1,0 +1,3 @@
+#+TITLE: README
+
+This website uses [[https://getbootstrap.com/docs/4.6/examples/carousel/][Carousel]] snippet and [[https://bootswatch.com/lux/][Bootswatch Lux theme]] for Bootstrap version 4.6.x.
